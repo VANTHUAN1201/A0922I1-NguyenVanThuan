@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form đơn giản</title>
+</head>
+<style>
+    table{
+        background: #FFFF99;
+        font-family: initial;
+        width: 500px;
+        margin: auto;
+    }
+    th{
+        text-align: Left;
+        color: blue;
+        background-color: burlywood;
+    }
+
+</style>
+<body>
+<form name="bai2">
+    <table>
+        <tr>
+            <th colspan="2"> ĐĂNG KÝ HỌC VIÊN</td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue"> Họ Và Tên</td>
+            <td><input type="text" name="name" value=""></td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Ngày sinh</td>
+            <td><input type="text" name="date" value=" "></td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Giới tính</td>
+            <td> <input type="radio" name="gender">Nam
+                <input type="radio" name="gender">Nữ
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Địa chỉ</td>
+            <td><input type="text" name="date" value=" "></td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Lớp</td>
+            <td>
+                <select id="class">
+                <option value="A09"> A09</option>
+                <option value="-Chọn lớp-" selected>-Chọn lớp-</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Email</td>
+            <td><input type="Email" required name="date" value=" "></td>
+        </tr>
+        <tr>
+            <td style="align-items: end; color: blue">Điện thoại</td>
+            <td><input type="number" name="date" value=" "></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="Đăng ký">
+            <input type="reset" name="reset" value="Nhập lại"> </td>
+
+        </tr>
+    </table>
+</form>
+</body>
+</html>
