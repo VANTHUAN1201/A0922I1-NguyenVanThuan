@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Caculator</title>
+    <style>
+        button{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <input id="first" type="number" >
+    <input id="second" type="number" ><br>
+    <button onclick="addi()">Addition(+)</button>
+    <button onclick="sub()">Subtraction(-)</button>
+    <button onclick="multi()">Multiplication(*)</button>
+    <button onclick="divi()">Division(/)</button><br>
+    <span id="result1"></span>
+    <span id="result2"></span>
+<script>
+    function addi() {
+        let f=+document.getElementById('first').value;
+        let s=+document.getElementById('second').value;
+        document.getElementById('result1').innerHTML="<span> Result addition:</span>";
+        document.getElementById('result2').innerText=f+s;
+
+    }
+    function sub() {
+        let f=+document.getElementById('first').value;
+        let s=+document.getElementById('second').value;
+        document.getElementById('result1').innerHTML="<span> Result Subtraction:</span>";
+        document.getElementById('result2').innerText=f-s;
+    }
+    function multi() {
+        let f=+document.getElementById('first').value;
+        let s=+document.getElementById('second').value;
+        document.getElementById('result1').innerHTML="<span> Result Multiplication:</span>";
+        document.getElementById('result2').innerText=f*s;
+    }
+    function divi() {
+        let f=+document.getElementById('first').value;
+        let s=+document.getElementById('second').value;
+        document.getElementById('result1').innerHTML="<span> Result Division:</span>";
+        document.getElementById('result2').innerText=f/s;
+    }
+</script>
+</body>
+</html>
