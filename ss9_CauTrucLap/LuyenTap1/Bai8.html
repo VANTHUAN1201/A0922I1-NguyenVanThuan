@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 8</title>
+</head>
+<body>
+<input type="button" onclick="Play()" value="Chơi">
+<script>
+    alert("Mời nhập vào khoảng muốn đoán:");
+    var beginNumber = +prompt("số bắt đầu");
+    var endNumber = +prompt("số kết thúc");
+    if (!isNaN(beginNumber) && !isNaN(endNumber) && endNumber > beginNumber) {
+        let numberRandom = Math.floor((Math.random() * (endNumber - beginNumber + 1)) + beginNumber);
+        function Play() {
+            for (var i = 1; i <= 2; i++) {
+                var numberGuess = +prompt("nhập vào số bạn muốn đoán")
+                if (numberGuess === numberRandom) {
+                    alert("chúc mừng bạn đã đoán đúng")
+                    break;
+                } else if (numberGuess > numberRandom) {
+                    alert("số bạn đã đoán lớn hơn số đúng, mời bạn đoán lại")
+                } else {
+                    alert("số bạn đã đoán bé hơn, mời bạn đoán lại")
+                }
+            }
+        }
+    }else {
+        alert("Mời nhập lại khoảng muốn đoán:")
+    }
+</script>
+</body>
+</html>

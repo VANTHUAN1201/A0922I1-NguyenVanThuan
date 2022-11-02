@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    let gt=1;
+        var n=+prompt("Nhập vào 1 số nguyên dương:","");
+        if (n<0){
+             n=+prompt("Nhập vào 1 số nguyên dương:","");
+        }
+        if (n==0 ||n==1){
+            document.write(n+"! = "+gt);
+        }else {
+            for ( var i=1;i<=n;i++){
+                gt*=i;
+            }
+            document.write(n+"! = "+gt);
+        }
+
+</script>
+</body>
+</html>

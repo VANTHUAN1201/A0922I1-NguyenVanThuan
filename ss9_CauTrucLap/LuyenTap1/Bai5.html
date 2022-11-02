@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+<p> Dãy 20 số đầu tiên trong dãy fibonacci:</p>
+<script>
+    let n1=0,n2=1,nextNumber1,a1=0,a2=1,nextNumber2;
+    let sum=0;
+    for (let i = 1; i <= 20; i++) {
+        document.write(n1+"<br>");
+        nextNumber1 = n1 + n2;
+        n1 = n2;
+        n2 = nextNumber1;
+    }
+    for (let i = 1; i <= 20; i++) {
+        sum+=a1;
+        nextNumber2 = a1 + a2;
+        a1 = a2;
+        a2 = nextNumber2;
+    }
+    document.write("Tổng 20 số đầu tiên trong dãy fibonacci là :"+sum);
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 12</title>
+</head>
+<body>
+<!--tiền gửi ngân hàng theo kì hạn 3 tháng (1 quý)lãi suất ngân hàng là 0,59% một tháng.
+Trong các tháng của kì hạn, chỉ cộng thêm lãi chữ không cộng vốnvà lãi của tháng trước
+để tính tháng sau; hết một kì hạn, lãi sẽ được cộng vào vốn để tính lãi trong chu kì tiếp theo-->
+<script>
+    var TienGui = +prompt("nhập vào số tiền gửi ban đầu (VNĐ)");
+    var Thang = +prompt("nhập vào số tháng gửi");
+    var quy = Thang/3;
+    var r = 3*0.59/100;
+    if(!isNaN(TienGui) && !isNaN(Thang) && TienGui>0 && Thang>0){
+        if(Thang%3==0){
+            var Tiennhan = TienGui*Math.pow(1+r,quy);
+            alert("số tiền nhận được sau " + Thang +" là: "+ Tiennhan + " VNĐ");
+        }
+        else if ( Thang%3 != 0){
+            var Tiennhan = TienGui*Math.pow(1+r,quy) + TienGui*Math.pow(1+ r,quy)*(Thang%3)*0.59/100;
+            alert("số tiền nhận được sau " + Thang +" là: "+ Tiennhan + " VNĐ");
+        }
+
+    }
+    else {
+        alert("vui lòng nhập lại");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<body>
+<script>
+    var doanhthu = +prompt("Nhập tổng doanh số bán hàng (VNĐ):");
+        if (doanhthu >= 300000000) {
+            var hh = 20 * doanhthu / 100;
+            alert("hoa hồng nhận được là: " + hh + " VNĐ (15%)");
+        } else {
+            if (doanhthu > 100000000) {
+                var hh = 10 * doanhthu / 100;
+                alert("hoa hồng nhận được là: " + hh + " VNĐ (10%)");
+            } else {
+                var hh = 5 * doanhthu / 100;
+                alert("hoa hồng nhận được là: " + hh + " VNĐ (5%)")
+            }
+        }
+</script>
+</body>
+</html>

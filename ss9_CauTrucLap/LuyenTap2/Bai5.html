@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+    <label for="tiengui">Nhập số tiền gửi:</label>
+    <input id="tiengui" type="number">
+    <label for="thang"> Số tháng gửi:</label>
+    <input id="thang" type="number">
+    <button id="tinhtien" onclick="tinhtien()">Tính tiền:</button><br>
+    <label id="ketqua">...</label>
+<script>
+    function tinhtien() {
+        let tien = +document.getElementById("tiengui").value;
+        let thang = +document.getElementById("thang").value;
+        for ( var i=1 ; i <= thang; i++) {
+            tien =tien +tien*0.3/100;
+        }
+        document.getElementById("ketqua").innerHTML=('Số tiền nhận được sau ' + (i-1) + ' tháng là : ' + tien);
+    }
+</script>
+</body>
+</html>

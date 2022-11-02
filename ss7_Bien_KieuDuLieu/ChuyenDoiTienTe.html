@@ -19,23 +19,37 @@
     </tr>
     <tr>
         <td><input type="number" id="Amount" name="Amount" size="10"></td>
-        <td><select>
-            <option id="From">Việt Nam</option>
+        <td><select id="From">
+            <option value="VND">VND</option>
+            <option value="USD">USD</option>
         </select></td>
-        <td><select>
-            <option id="To">USD</option>
+        <td><select id="To">
+            <option value="USD">USD</option>
+            <option value="VND">VND</option>
         </select></td>
         <td><button onclick="convert()">Convert</button></td>
     </tr>
-    <tr>
-        <td colspan="4" style="text-align: left">Result: <label id="result"> </label> USD</td>
-    </tr>
 </table>
+<p id="result"></p>
 <script>
     function convert() {
-        let vnd=+document.getElementById('Amount').value;
-        let usd=vnd*0.00004;
-        document.getElementById('result').innerText=usd;
+        let Amount=+document.getElementById("Amount").value;
+        let from=document.getElementById("From").value;
+        let to=document.getElementById("To").value;
+        let Result;
+        if (from == "USD" && to == "VND") {
+            Result = "Result: " + (Amount * 23000) + " Đ";
+        }
+        else if (from == "VND"&& to =="USD"){
+            Result = "Result: "+ (Amount / 23000) + " $";
+        }
+        else if (from == "VND") {
+            Result = "Result: " + Amount + " Đ"
+        } else {
+            Result = "Result: " + Amount + " $"
+        }
+
+        document.getElementById('result').innerText=Result;
     }
 </script>
 </body>

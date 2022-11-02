@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai7</title>
+</head>
+<body>
+<!--Phí thuê bao bắt buộc là 25 nghìn.
+600 đồng cho mỗi phút gọi của 50 phút đầu tiên.
+400 đồng cho mỗi phút gọi của 150 phút tiếp theo.
+200 đồng cho bất kỳ mỗi phút nào sau 200 phút đầu tiên.-->
+<script>
+    var minutes = +prompt("nhập vào số phút gọi trong tháng")
+        if (minutes > 200) {
+            var phi = (minutes - 200) * 200 + 150 * 400 + 50 * 600;
+        } else {
+            if (minutes > 50) {
+                var phi = (minutes - 50) * 400 + 50 * 600;
+            } else {
+                var phi = minutes * 600;
+            }
+        }
+    let sum = phi + 25000;
+    alert("cước phí điện thoại là : " + sum +" VNĐ");
+</script>
+</body>
+</html>

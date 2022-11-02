@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 11</title>
+</head>
+<body>
+<!--1. 4 triệu đồng/tháng 0%;
+2. Trên 4 - 6 triệu đồng/tháng: 5%;
+3. Trên 6 - 9 triệu đồng: 10%;
+4. Trên 9 - 14 triệu đồng/tháng: 15%;
+5. trên 14 - 24 triệu đồng/tháng: 20%;
+6. Trên 24 - 44 triệu đồng/tháng: 25%;
+7. Trên 44 - 84 triệu đồng/tháng: 30%;
+8. Trên 84 triệu đồng: 35%.-->
+<script>
+    var luong = +prompt("nhập thu nhập của bạn/tháng (VNĐ)");
+    if(!isNaN(luong) && luong>0){
+        if(luong>84000000){
+            var thue = 0.35*luong;
+        }
+        else {
+            if(luong>44000000){
+                var thue = 0.30*luong;
+            }
+            else {
+                if(luong>24000000){
+                    var thue = 0.25*luong;
+                }
+                else {
+                    if(luong>14000000){
+                        var thue= 0.2*luong;
+                    }
+                    else {
+                        if (luong>9000000){
+                            var thue=0.15*luong;
+                        }
+                        else {
+                            if(luong>6000000){
+                                var thue= 0.1*luong;
+                            }
+                            else {
+                                if(luong>4000000){
+                                    var thue = 0.05*luong ;
+                                }
+                                else {
+                                    var thue = "không cần đóng thuế";
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    else {
+        alert("vui lòng nhập lại")
+    }
+    alert(thue)
+</script>
+</body>
+</html>
