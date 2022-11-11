@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<!--Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+Chương trình này đếm số ký tự số trong mảng. -->
+<body>
+<script>
+    let arr=[ 'c', 's', 'c', '2', '6', '1','s','q' ];
+    let size=arr.length;
+    let dem=0
+    document.write("Mảng ban đầu:"+arr+"<br>");
+    for (let i=0;i<size;i++){
+        if (!(isNaN(arr[i]))){
+            dem++;
+        }
+    }
+    document.write("có "+ dem +" kí tự số ");
+</script>
+</body>
+</html>

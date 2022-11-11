@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<!--Viết một chương trình để đếm số từ trong một chuỗi -->
+<body>
+<script>
+    let str = prompt('Nhập vào 1 câu : ');
+    let dem = 0;
+    for (let i=0 ; i<str.length ; i++) {
+        if (i===0 && str[i] !== ' ') {
+            dem++;
+        } else {
+            if (str[i] === ' ' && str[i+1] !== ' ') {
+                dem++;
+            }
+        }
+    }
+    document.write("Số từ của câu " + str + " là : " + dem);
+
+</script>
+Footer
+</body>
+</html>

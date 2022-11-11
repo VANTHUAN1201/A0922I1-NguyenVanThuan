@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 6</title>
+</head>
+<!-- Viết chương trình nhập vào một mảng ký tự,
+ tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ ).-->
+<body>
+<script>
+    let arr=[]
+    let n=+(prompt("Nhập vào số lượng phần tử:"))
+    for (let i = 0; i <n ; i++) {
+        arr[i]=prompt("Nhập vào phần tử thứ "+(i+1)+":")
+    }
+    document.write("Mảng nhập vào: "+arr.join("")+"<br>");
+    for (let i = 0; i <n ; i++) {
+        if(arr[i]==='-'){
+            arr[i]='_'
+        }
+    }
+    document.write("Mảng sau khi đổi: "+arr.join(""));
+
+</script>
+</body>
+</html>

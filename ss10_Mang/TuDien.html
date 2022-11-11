@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+    <style>
+        button{
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<textarea id="english"></textarea><br>
+<button onclick="dich()">Dịch</button><br>
+<textarea id="viet"></textarea>
+
+<script>
+    function dich(){
+        let eng=document.getElementById("english").value;
+        var TA=["hello","computer","student","teacher","good bye","good morning","good night","good afternoon","hi"];
+        var TV=["Xin chào","máy tính","học sinh","giáo viên","Tạm biệt","chào buổi sáng","Chúc ngủ ngon","chào buổi chiều","xin chào"];
+        if (TA.indexOf(eng)!==-1){
+            document.getElementById("viet").value=TV[TA.indexOf(eng)]
+        }else {
+            document.getElementById("viet").value="Không tìm thấy!";
+        }
+    }
+
+</script>
+</body>
+</html>
