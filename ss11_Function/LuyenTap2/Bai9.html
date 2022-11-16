@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 9</title>
+</head>
+<!--Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra xem ký tự bất kỳ đó có nằm trong mảng không.
+Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1. -->
+<body>
+<script>
+    let arrString=['n','g','u','y','e','n','v','a','n','t','h','u','a','n']
+    let str=prompt("Nhập kí tự cần tìm: ")
+    let dem=0;
+    function searchString(arr,s) {
+        for (let i = 0; i <arr.length ; i++) {
+            if(s===arr[i]){
+                dem++;
+            }
+        }
+        return dem;
+    }
+    alert("có "+(searchString(arrString,str))+" ký tự "+str+" trong mảng: "+arrString)
+</script>
+</body>
+</html>
