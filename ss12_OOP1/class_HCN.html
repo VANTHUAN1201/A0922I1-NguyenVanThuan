@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lớp hình chữ nhật</title>
+</head>
+<body>
+</body>
+<script>
+    class   HinhChuNhat{
+        constructor(chieuDai,chieuRong) {
+            this.chieuDai=chieuDai;
+            this.chieuRong=chieuRong;
+        }
+        dienTich(){
+            return this.chieuDai*this.chieuRong
+        }
+        chuVi(){
+            return (this.chieuDai+this.chieuRong)*2
+        }
+    }
+    let dai=+prompt("Nhập vào chiều dài hình chữ nhật:")
+    let rong=+prompt("Nhập vào chiều rộng hình chữ nhật:")
+    let HinhChuNhats= new HinhChuNhat(dai,rong);
+    document.write("Diện tích hình chữ nhật là:"+HinhChuNhats.dienTich()+"<br>");
+    document.write("Chu vi hình chữ nhật là:"+HinhChuNhats.chuVi());
+
+</script>
+</html>

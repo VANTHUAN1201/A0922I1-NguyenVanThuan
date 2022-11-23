@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Xây dựng lớp mô tả Temperature</title>
+</head>
+<body>
+
+</body>
+<script>
+    class NhietDo{
+        constructor(doC) {
+            this.doC=doC;
+        }
+        doiF(){
+            return (this.doC*9)/5 +32;
+        }
+        doiKelvin(){
+            return this.doC+273.15;
+        }
+    }
+    let t=+prompt("Nhập nhiệt độ (C)")
+    let nhietDo= new NhietDo(t);
+    document.write(t+" &deg;C= "+ nhietDo.doiF()+" &deg;F <br>")
+    document.write(t+" &deg;C= "+ nhietDo.doiKelvin()+" &deg;K <br>")
+</script>
+</html>

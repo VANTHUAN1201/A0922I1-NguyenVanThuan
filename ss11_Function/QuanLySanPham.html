@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lí sản phẩm</title>
+    <style>
+        button{
+            background-color: darkseagreen;
+            border-color: darkseagreen;
+            color:white;
+            border-radius: 4px;
+        }
+
+        table{
+            border-collapse:collapse;
+            width:30%;
+        }
+        th, td{
+            text-align:left;
+            padding:5px;
+        }
+        table tr:nth-child(odd){
+            background-color:white;
+        }
+        table tr:nth-child(even){
+            background-color:#eee;
+        }
+    </style>
+</head>
+<body>
+<h3>Thêm mới sản phẩm</h3>
+<div>
+    <input id="sanPham" type="text" placeholder="Sản phẩm mới">
+    <button onclick="themsp(arr)">Add</button>
+</div>
+<div>
+    <h3> Danh mục sản phẩm</h3>
+    <div id="result"></div>
+</div>
+</body>
+<script>
+
+let arr=["Samsung Galaxy","nokia 6","Xiaomi Redmi Note 4"]
+    function hienThi(arr) {
+        let table = '<table id="danhMuc">\n' +
+            '        <tr>\n' +
+            '            <th>STT</th>\n' +
+            '            <th>TÊN SẢN PHẨM</th>\n' +
+            '            <th></th>\n' +
+            '            <th></th>\n' +
+            '        </tr>\n';
+
+        for (let i = 0; i <arr.length ; i++) {
+            let temp = '<tr>\n' +
+            '            <td>'+(i+1)+'</td>\n' +
+            '            <td>'+arr[i]+'</td>\n' +
+            '            <td><button onclick="chinhSua(' + i + ')">Sửa</button></td>\n' +
+            '            <td><button onclick="xoa(' + i + ') ">Xóa</button></td>\n' +
+            '        </tr>\n';
+            table += temp;
+        }
+        table += '</table>'
+        return table;
+
+    }
+
+function themsp(a) {
+    let sp=document.getElementById("sanPham").value;
+    if (!isNaN(sp)){
+        return alert("Bạn chưa nhập sản phẩm cần  thêm!")
+    }else {
+        a.push(sp);
+        document.getElementById("result").innerHTML = hienThi(a);
+    }
+}
+function xoa(i) {
+    if(confirm('Are you sure you want to delete this item?')){
+        arr.splice(i,1);
+        document.getElementById("result").innerHTML = hienThi(arr);
+    }
+}
+function chinhSua(i) {
+    if(str=prompt("Tên sản phẩm đổi lại là:")){
+        arr[i]=str;
+    }
+    document.getElementById("result").innerHTML = hienThi(arr);
+}
+    document.getElementById("result").innerHTML = hienThi(arr);
+</script>
+</html>

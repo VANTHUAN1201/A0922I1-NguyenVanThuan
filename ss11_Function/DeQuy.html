@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPalindrome(s,i){
+        if(i > s.length/2) {
+            return true;
+        }else
+            return s[i] == s[s.length-i-1] && isPalindrome(s, i+1)
+    }
+
+    let str = "got";
+    if (isPalindrome(str, 0)) {
+       document.write(str+" is a Palindrome string")
+    }else {
+        document.write(str+" isn't a Palindrome string")
+    }
+
+</script>
+</body>
+</html>
