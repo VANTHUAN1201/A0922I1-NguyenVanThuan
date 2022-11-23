@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>den_congtac</title>
+</head>
+<body>
+<script>
+    let Electriclamp=function (a) {
+        this.status=a
+        this.turnOff=function () {
+            this.status=false
+        }
+        this.turnOn=function () {
+            this.status=true
+        }
+    }
+    let SwitchButon=function (status,lamp) {
+        this.status=status
+        this.lamp=lamp
+        this.ConectToLamp=function (a) {
+            a.status= this.status
+        }
+        this.switchOff=function () {
+            this.status=false
+            this.ConectToLamp(this.lamp)
+        }
+        this.switchOn=function () {
+            this.status=true
+            this.ConectToLamp(this.lamp)
+        }
+    }
+    let a=new Electriclamp(false)
+    let b=new SwitchButon(false,a)
+    for(let i=1;i<=10;i++){
+        b.switchOn()
+        console.log("bat con tat lan thu",i)
+        b.switchOff()
+        console.log("tat con tat lan thu",++i)
+    }
+</script>
+</body>
+</html>
