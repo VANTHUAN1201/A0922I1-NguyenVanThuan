@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 4</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width:50%;
+        }
+        th, td{
+            text-align:left;
+            padding:5px;
+        }
+    </style>
+</head>
+<label for="ma"> Mã điện thoại:
+    <input id="ma">
+</label>
+<label for="ten"> Tên điện thoại:
+    <input id="ten">
+</label>
+<label for="hang"> Hãng sản xuất:
+    <input id="hang">
+</label>
+<label for="gia"> Giá:
+    <input id="gia">
+</label>
+<button onclick="themMoi(arr)">Thêm mới</button><br><br>
+<div id="ketQua"></div>
+
+
+<body>
+<script>
+    class dienThoai{
+        constructor(ma,ten,hang,gia) {
+            this.ma=ma;
+            this.ten=ten;
+            this.hang=hang;
+            this.gia=gia;
+        }
+        getMa(){
+            return this.ma;
+        }
+        setMa(value){
+            this.ma=value;
+        }
+        getTen(){
+            return this.ten;
+        }
+        setTen(value){
+            this.ten=value;
+        }
+        getHang(){
+            return this.hang;
+        }
+        setHang(value){
+            this.hang=value;
+        }
+        getGia(){
+            return this.gia;
+        }
+        setGia(value){
+            this.gia=value;
+        }
+        toString(){
+            return "Mã điện thoại: "+this.ma+".Tên điện thoại: "+this.ten+".Hãng sản xuất:"+this.hang+".Giá:"+this.gia;
+        }
+    }
+    let dienThoai1= new dienThoai("DT01","oppo A15","oppo",2500000);
+    let dienThoai2= new dienThoai("DT02","oppo A16","oppo",2700000);
+    arr=[dienThoai1,dienThoai2];
+    hienThi(arr);
+    function hienThi(arr) {
+        let str="<table border='1px'>\n" +
+            "    <tr>\n" +
+            "        <th>Mã điện thoại</th>\n" +
+            "        <th>Tên điện thoại</th>\n" +
+            "        <th>Hãng sản xuất</th>\n" +
+            "        <th>Giá</th>\n" +
+            "    </tr>";
+        for (let i = 0; i <arr.length ; i++) {
+            str+="    <tr>\n" +
+                "        <td>"+arr[i].getMa()+"</td>\n" +
+                "        <td>"+arr[i].getTen()+"</td>\n" +
+                "        <td>"+arr[i].getHang()+"</td>\n" +
+                "        <td>"+arr[i].getGia()+"</td>\n" +
+                "    </tr>";
+        }
+        str+="</table>";
+        document.getElementById("ketQua").innerHTML=str;
+    }
+    function themMoi(arr) {
+        let ma=document.getElementById("ma").value;
+        let ten=document.getElementById("ten").value;
+        let hang=document.getElementById("hang").value;
+        let gia=+document.getElementById("gia").value;
+        let newDienThoai=new dienThoai(ma,ten,hang,gia);
+        arr.push(newDienThoai);
+        alert("Thêm mới thành công");
+        hienThi(arr);
+    }
+</script>
+</body>
+</html>

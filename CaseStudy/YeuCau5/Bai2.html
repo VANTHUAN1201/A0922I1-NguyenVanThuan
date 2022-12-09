@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<!--Viết hàm liệt kê các số nguyên tố trong mảng 2 chiều, đếm các số nguyên tố có trong mảng đó..-->
+<body>
+</body>
+<script>
+    m=+prompt("Nhập m= ");
+    n=+prompt("Nhập n= ");
+    let a=[];
+    for (let i = 0; i <n ; i++) {
+        a[i]=[];
+        for (let j = 0; j <m ; j++) {
+            a[i][j]=+prompt("a["+i+"]["+j+"]= ");
+        }
+    }
+    for (let i in a)
+    {
+        document.write("[ " );
+        for (let j in a[i])
+        {
+            document.write( a[i][j]+" " );
+        }
+        document.write("],<br>" );
+    }
+
+    function ktrSnt(n){
+        if (n==2){
+            return true;
+
+        }else{
+            for (let i=2; i <n ; i++) {
+                if(n%i==0){
+                    return false;
+                }else {
+                    return  true
+                }
+            }
+        }
+
+    }
+
+    let dem=0;
+    document.writeln("các số nguyên tố trong ma trận là: ")
+    for (let i in a) {
+        for (let j in a[i]) {
+            if(ktrSnt(a[i][j])){
+                document.writeln(a[i][j])
+                dem++;
+            }
+        }
+    }
+    document.write("<br>Tổng các số nguyên tố trong ma trận trên là: "+dem);
+</script>
+</html>

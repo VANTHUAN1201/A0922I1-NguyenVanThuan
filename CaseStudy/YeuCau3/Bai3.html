@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+
+</body>
+<script>
+    let numerators = [5, 2, 5] ;
+    let denominators = [1, 3, 4];
+    function maxFraction(numerators,denominators) {
+        let maxKey = 0;
+        for (let i = 1; i < numerators.length; i++) {
+            const a = numerators[maxKey];
+            const b = denominators[maxKey];
+            const c = numerators[i];
+            const d = denominators[i];
+            if (a*d - b*c < 0)
+                maxKey = i;
+        }
+        return maxKey;
+    }
+    document.write( maxFraction(numerators,denominators));
+</script>
+</html>

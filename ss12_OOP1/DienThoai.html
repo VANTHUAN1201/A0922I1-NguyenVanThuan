@@ -4,6 +4,114 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    table{
+        border-collapse:collapse;
+        width:50%;
+    }
+    th, td{
+        text-align:center;
+        padding:5px;
+    }
+    table tr:nth-child(odd){
+        background-color:white;
+    }
+    table tr:nth-child(even){
+        background-color:#eee;
+    }
+</style>
 <body>
+<label for="ten">Tên Cầu thủ
+    <input id="ten">
+</label>
+<label for="tuoi">Tuổi
+    <input id="tuoi">
+</label>
+<label for="diaChi">Địa chỉ
+    <input id="diaChi">
+</label>
+<button onclick="them()">Thêm mới</button>
+<p id="kq"></p>
+<script>
+    class cauThu{
+        constructor(ten,tuoi,diaChi) {
+            this.ten = ten;
+            this.tuoi = tuoi;
+            this.diaChi = diaChi;
+        }
+
+        getTen() {
+            return this.ten;
+        }
+        setTen(value){
+            this.ten=value;
+        }
+        getTuoi(){
+            return this.tuoi;
+        }
+        setTuoi(value){
+            this.tuoi=value
+        }
+        getDiaChi(){
+            return this.diaChi;
+        }
+        setDiaChi(value){
+            this.diaChi=value;
+        }
+    }
+    let cauThu1= new cauThu("Thuấn",21,"Quảng Trị");
+    let cauThu2= new cauThu("vương",22,"Quảng Trị");
+    let arr=[cauThu1,cauThu2];
+    function hienThi(arr) {
+        let str="<table>\n" +
+            "    <tr>\n" +
+            "        <th>STT</th>\n" +
+            "        <th>TÊN</th>\n" +
+            "        <th>TUỔI</th>\n" +
+            "        <th>ĐỊA CHỈ</th>\n" +
+            "        <th colspan='2'>Hành động</th>\n" +
+            "    </tr>"
+        for (let i = 0; i <arr.length ; i++) {
+            str+="    <tr>\n" +
+                "        <td>"+(i+1) +"</td>\n" +
+                "        <td>"+ arr[i].getTen()+"</td>\n" +
+                "        <td>"+ arr[i].getTuoi()+"</td>\n" +
+                "        <td>"+ arr[i].getDiaChi()+"</td>\n" +
+                "        <td><button onclick='sua("+i+")'>Chỉnh sửa</button></td>\n" +
+                "        <td><button onclick='xoa("+i+")'>Xóa</button></td>\n" +
+                "    </tr>"
+        }
+        str+="</table>"
+        document.getElementById("kq").innerHTML=str;
+    }
+    hienThi(arr);
+    function xoa(i) {
+        if(confirm("Bạn có chắc chắn muốn xóa"+arr[i].getTen()+"?")){
+            arr.splice(i,1);
+            alert("Bạn đã xóa thành công");
+        }
+        hienThi(arr);
+    }
+    function sua(i) {
+            ten=prompt("Nhập lại tên cầu thủ:")
+            tuoi=+prompt("Nhập lại tuổi cầu thủ:")
+            diaChi=prompt("Nhập lại địa chỉ:")
+            arr[i].setTen(ten);
+            arr[i].setTuoi(tuoi);
+            arr[i].setDiaChi(diaChi);
+            alert("chỉnh sửa thành công")
+            hienThi(arr);
+    }
+    function them() {
+        ten=document.getElementById("ten").value;
+        tuoi=document.getElementById("tuoi").value;
+        diaChi=document.getElementById("diaChi").value;
+        let newCauThu=new cauThu(ten,tuoi,diaChi);
+        arr.push(newCauThu);
+        alert("thêm mới thành công");
+        hienThi(arr);
+
+    }
+</script>
 </body>
 </html>

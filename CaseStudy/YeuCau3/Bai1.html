@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<!--Xây dựng mảng b là prefix sums của mảng a-->
+<body>
+</body>
+<script>
+    function fillPrefixSum(a, n, b)
+    {
+        b[0] = a[0];
+
+        for (let i = 1; i < n; ++i)
+            b[i] = b[i - 1] + arr[i];
+    }
+    let a = [ 10, 4, 16, 20 ];
+    let n = arr.length;
+    let b = [];
+
+    fillPrefixSum(a, n, b);
+    document.write(b);
+</script>
+</html>

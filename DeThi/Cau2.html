@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 2</title>
+</head>
+<body>
+<script>
+    let hoa = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+    let str=prompt("Nhập vào một chuỗi !");
+    function demKyTuHoa(chuoi) {
+        let dem=0;
+        for (let i = 0; i <chuoi.length ; i++) {
+            if(hoa.indexOf(chuoi[i]) !== -1){
+                dem+=1;
+            }
+        }
+        return dem;
+    }
+    document.write("Chuỗi đã nhập vào là: "+str+".<br>");
+    if(demKyTuHoa(str)==0){
+        document.write("Chuỗi không chứa ký tự hoa nào!");
+    }else {
+        document.write(" có "+demKyTuHoa(str)+" ký tự hoa trong chuỗi");
+    }
+</script>
+</body>
+</html>

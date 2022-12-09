@@ -13,7 +13,7 @@
 
         table{
             border-collapse:collapse;
-            width:30%;
+            width:50%;
         }
         th, td{
             text-align:left;
@@ -60,7 +60,7 @@ let arr=["Samsung Galaxy","nokia 6","Xiaomi Redmi Note 4"]
             table += temp;
         }
         table += '</table>'
-        return table;
+        document.getElementById("result").innerHTML = table;
 
     }
 
@@ -70,21 +70,21 @@ function themsp(a) {
         return alert("Bạn chưa nhập sản phẩm cần  thêm!")
     }else {
         a.push(sp);
-        document.getElementById("result").innerHTML = hienThi(a);
+        hienThi(a);
     }
 }
 function xoa(i) {
-    if(confirm('Are you sure you want to delete this item?')){
+    if(confirm('Bạn có chắc chắn muốn xóa sản phẩm')){
         arr.splice(i,1);
-        document.getElementById("result").innerHTML = hienThi(arr);
+        hienThi(arr);
     }
 }
 function chinhSua(i) {
     if(str=prompt("Tên sản phẩm đổi lại là:")){
         arr[i]=str;
     }
-    document.getElementById("result").innerHTML = hienThi(arr);
+   hienThi(arr);
 }
-    document.getElementById("result").innerHTML = hienThi(arr);
+   hienThi(arr);
 </script>
 </html>

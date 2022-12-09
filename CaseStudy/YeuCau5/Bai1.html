@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<!--Viết hàm tính tổng các số chẵn trong ma trận có kích thước m*n. Với m, n là các số nhập từ bàn phím.-->
+<body>
+</body>
+<script>
+    m=+prompt("Nhập m= ");
+    n=+prompt("Nhập n= ");
+    let a=[];
+    for (let i = 0; i <n ; i++) {
+        a[i]=[];
+        for (let j = 0; j <m ; j++) {
+            a[i][j]=+prompt("a["+i+"]["+j+"]= ");
+        }
+    }
+    for (let i in a)
+    {
+        document.write("[ " );
+        for (let j in a[i])
+        {
+            document.write( a[i][j]+" " );
+        }
+        document.write("],<br>" );
+    }
+    let sum=0;
+    for (let i in a) {
+        for (let j in a[i]) {
+            if(a[i][j]%2===0){
+                sum+=a[i][j];
+            }
+        }
+    }
+    document.write("<br>Tổng các số chẵn trong ma trận trên là: "+sum);
+</script>
+</html>

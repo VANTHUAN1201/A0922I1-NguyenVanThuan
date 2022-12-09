@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<!--Bài 1: Viết một hàm chuẩn hóa xâu ký tự: biến đổi xâu ký tự thành xâu sao cho trong xâu không có 2 dấu cách liền nhau và bắt đầu mỗi từ phải in hoa.
+Ví dụ tRuong    TaN   HAI => Truong Tan Hai.
+Và một hàm tìm từ dài nhất trong 1 xâu ký tự.
+Hàm main sử dụng các hàm này để nhập xâu ký tự từ bàn phím, in ra xâu trước và sau khi chuẩn hóa, 1 từ dài nhất trong xâu đó.
+-->
+<body>
+</body>
+<script>
+let str=prompt("Nhập vào 1 chuỗi");
+let arr=str.split(" ");
+let kq="";
+let tmp;
+for (let i = 0; i <arr.length ; i++) {
+    tmp=arr[i].trim().toLowerCase();
+    if(tmp!=" "){
+        tmp=tmp.substr(0,1).toUpperCase()+ tmp.substr(1);
+        kq+=tmp+" ";
+    }
+}
+document.write("<br>Chuổi sau khi chuẩn hóa là: "+kq.trim());
+var words = kq.split(' ');
+var maxLength = 0;
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].length > maxLength) {
+            maxLength = words[i].length;
+
+        }
+    }
+document.write("<br>Từ dài nhất là: ")
+    for (let i = 0; i < words.length; i++) {
+        if(words[i].length==maxLength){
+            document.write(words[i]+".")
+        }
+    }
+</script>
+</html>

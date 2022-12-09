@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 5</title>
+</head>
+<body>
+
+</body>
+<script>
+
+
+    do{
+        chon=+prompt("Menu 1 (cafe), 2 (cam vắt), 3(nước ép cà rốt), 4(nước ép cà chua), 5(nước lọc), 6(nước dừa), 7(thoát gọi món)" +
+            ".Mời nhập lựa chọn!");
+        switch (chon) {
+            case 1:{
+                let sl=+prompt("cafe - 18k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*18)+"k")
+                    break;
+                }
+
+            }
+            case 2:{
+                let sl=+prompt("cam vắt - 20k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*20)+"k")
+                    break;
+                }
+
+            }
+            case 3:{
+                let sl=+prompt("nước ép cà rốt - 20k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*20)+"k")
+                    break;
+                }
+
+            }
+            case 4:{
+                let sl=+prompt("nước ép cà chua - 20k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*20)+"k")
+                    break;
+                }
+
+            }
+            case 5:{
+                let sl=+prompt("nước lọc - 10k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*10)+"k")
+                    break;
+                }
+
+            }
+            case 6:{
+                let sl=+prompt("nước dừa - 25k." +
+                    " Mời nhập số lượng:");
+                if(sl<=0){
+                    alert("nhập sai. mời chọn lại")
+                }else {
+                    alert("tổng số tiền cần trả là:"+ (sl*25)+"k")
+                    break;
+                }
+
+            }
+            case 7:{
+                alert("quý khách đã hủy gọi món!")
+                continue;
+            }
+
+        }
+    }while (chon!==7)
+</script>
+</html>

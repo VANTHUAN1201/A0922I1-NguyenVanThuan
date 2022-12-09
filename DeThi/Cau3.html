@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 3</title>
+</head>
+<body>
+<script>
+    let arr=[];
+    let arrSNT=[];
+    let soPtu=+prompt("Nhập vào số phần tử !");
+    if(!isNaN(soPtu)){
+        for (let i = 0; i <soPtu; i++) {
+            arr[i]=+prompt("Phần tử thứ "+i+" là");
+        }
+        document.write("Mảng ban đầu là:"+arr+"<br>");
+        for (let i = 0; i <arr.length ; i++) {
+            if(kt_SNT(arr[i])){
+                arrSNT.push(arr[i]);
+            }
+        }
+        document.write("Các số nguyên tố có trong mảng là: "+arrSNT.sort(function (a,b) {
+            return a-b;
+        }));
+    }
+    else {
+        alert("Nhập sai! Mời nhập lại");
+    }
+    function kt_SNT(so) {
+            if(so<2){
+                return false;
+            }else if(so==2){
+                return true;
+            }else {
+                for (let j = 2; j <so; j++) {
+                    if (so%j==0){
+                        return false;
+                    }
+                    else {
+                        return true;
+                    }
+                }
+            }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 1</title>
+</head>
+<body>
+<script>
+    let arr = [];
+    let tongLe = 0;
+    let tongChan = 0;
+    let soPtu = +prompt("Nhập vào số phần tử (<=20)!");
+    if (!isNaN(soPtu) && (soPtu <= 20)) {
+        for (let i = 0; i < soPtu; i++) {
+            arr[i] = +prompt("Phần tử thứ " + i + " là");
+        }
+        document.write("Mảng ban đầu là:" + arr + "<br>");
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                tongChan += arr[i];
+            } else {
+                tongLe += arr[i];
+            }
+        }
+        document.write("Hiệu các số chẵn và các số lẽ là: " + tongChan + " - " + tongLe + "=" + (tongLe - tongChan));
+    } else {
+        alert("Nhập sai! Mời nhập lại");
+    }
+</script>
+</body>
+</html>

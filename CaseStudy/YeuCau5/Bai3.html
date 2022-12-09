@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 1</title>
+</head>
+<!-- Bài 3: Viết hàm tìm giá trị lớn nhất, nhỏ nhất trong mảng 2 chiều-->
+<body>
+</body>
+<script>
+    m=+prompt("Nhập m= ");
+    n=+prompt("Nhập n= ");
+    let a=[];
+    for (let i = 0; i <n ; i++) {
+        a[i]=[];
+        for (let j = 0; j <m ; j++) {
+            a[i][j]=+prompt("a["+i+"]["+j+"]= ");
+        }
+    }
+    for (let i in a)
+    {
+        document.write("[ " );
+        for (let j in a[i])
+        {
+            document.write( a[i][j]+" " );
+        }
+        document.write("],<br>" );
+    }
+    function max(a) {
+        let max=a[0][0]
+        for (let i in a) {
+            for (let j in a[i]) {
+                if(a[i][j]>max){
+                    max=a[i][j];
+                }
+            }
+        }
+        return max;
+
+    }
+    function min(a) {
+        let min=a[0][0]
+        for (let i in a) {
+            for (let j in a[i]) {
+                if(a[i][j]<min){
+                    min=a[i][j];
+                }
+            }
+        }
+        return min;
+    }
+    document.write("<br>Số lớn nhất trong ma trận là: "+max(a));
+    document.write("<br>Số nhỏ nhất trong ma trận là: "+min(a));
+</script>
+</html>
