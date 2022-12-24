@@ -1,6 +1,4 @@
-package Loop;
-
-import javafx.scene.transform.Scale;
+package loop;
 
 import java.util.Scanner;
 

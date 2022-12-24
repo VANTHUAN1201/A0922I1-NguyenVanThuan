@@ -1,6 +1,4 @@
-package Loop;
-
-import java.util.Scanner;
+package loop;
 
 public class Prime100 {
     public static void main(String[] args) {
