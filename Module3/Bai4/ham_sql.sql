@@ -10,6 +10,7 @@ where s.SubId=mark.SubId and mark.Mark=(select max(mark.Mark) from mark);
 -- Hiển thị các thông tin sinh viên và điểm trung bình của mỗi sinh viên, xếp hạng theo thứ tự điểm giảm dần
 SELECT S.StudentId,S.StudentName,S.Address,S.Phone,S.`Status`, AVG(M.Mark) as DTB
 FROM Student S join Mark M on S.StudentId = M.StudentId
-GROUP BY S.StudentId, S.StudentName;
+GROUP BY S.StudentId, S.StudentName 
+order by DTB desc;
 
 
