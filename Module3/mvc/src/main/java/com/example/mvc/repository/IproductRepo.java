@@ -6,8 +6,9 @@ import java.util.List;
 
 public interface IproductRepo {
     List<Product> findAll();
-    Product findName(String name);
+    Product findById(int id);
+
     void save(Product product);
-    void edit(int id,Product product);
+    void edit(Product product);
     void remove(int id);
 }

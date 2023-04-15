@@ -15,8 +15,8 @@ public class ProductServiceImpl implements IproductService {
     }
 
     @Override
-    public Product findName(String name) {
-        return repo.findName(name);
+    public Product findById(int id) {
+        return repo.findById(id);
     }
 
     @Override
@@ -25,8 +25,8 @@ public class ProductServiceImpl implements IproductService {
     }
 
     @Override
-    public void edit(int id, Product product) {
-        repo.edit(id,product);
+    public void edit( Product product) {
+        repo.edit(product);
     }
 
     @Override

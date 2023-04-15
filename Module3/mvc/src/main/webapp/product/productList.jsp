@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Asus-FPT
@@ -9,29 +10,39 @@
 <html>
 <head>
     <title>Product</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 </head>
 <body>
-<h1>Customers</h1>
-<p>
-    <a href="/product?action=create">Create new customer</a>
-</p>
-<table class="">
-    <tr>
-        <td>Id</td>
-        <td>Name</td>
-        <td>Brand</td>
-        <td>Price</td>
-        <td>Image</td>
-    </tr>
-    <c:forEach items='${productList}' var="list">
+<div class="container">
+    <h1 style="text-align: center">Customers</h1>
+    <div>
+        <a href="/product?action=create" role="button">Create</a>
+    </div>
+    <table class="table">
         <tr>
-            <td><a href="/product?action=view&id=${customer.getId()}">${customer.getName()}</a></td>
-            <td>${customer.getEmail()}</td>
-            <td>${customer.getAddress()}</td>
-            <td><a href="/customers?action=edit&id=${customer.getId()}">edit</a></td>
-            <td><a href="/customers?action=delete&id=${customer.getId()}">delete</a></td>
+            <th style="color: darkgoldenrod">Id</th>
+            <th style="color: darkgoldenrod">Name</th>
+            <th style="color: darkgoldenrod">Brand</th>
+            <th style="color: darkgoldenrod">Price</th>
+            <th style="color: darkgoldenrod">Image</th>
+            <th style="color: darkgoldenrod">Action</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach items='${productList}' var="list">
+            <tr>
+                <td>${list.id}</td>
+                <td>${list.name}</td>
+                <td>${list.brand}</td>
+                <td>${list.price}</td>
+                <td><img src="data/image/${list.image}" width="60px"></td>
+                <td style="margin-right: 10px">
+                    <a href="/product?action=detail&id=${list.getId()}" role="button" >Detail</a>
+                    <a href="/product?action=edit&id=${list.getId()}" role="button">Edit</a>
+                    <a href="/product?action=delete&id=${list.getId()}" role="button">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
 </body>
 </html>
