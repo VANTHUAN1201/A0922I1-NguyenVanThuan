@@ -23,7 +23,7 @@ values(1,"sp_1","bút chì 2B",3000,50,"bút chì 2B",1),
 		(10,"sp_10","compa",10000,25,"compa",1);
 -- Tạo Unique Index trên bảng Products (sử dụng cột productCode để tạo chỉ mục)
 create index indexCode on products(`code`);
--- Tạo Composite Index trên bảng Products (sử dụng 2 cột productName và productPrice)
+-- Tạo Composite Index trên bảng Products (sử dụng 2 cindexCodeindexName_Priceột productName và productPrice)
 create index indexName_Price on products(`name`,price);
 -- Sử dụng câu lệnh EXPLAIN để biết được câu lệnh SQL của bạn thực thi như nào
 EXPLAIN SELECT * FROM products WHERE `code` = 'sp_6';
