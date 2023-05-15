@@ -13,11 +13,10 @@
   <body>
   <h1 style="font-weight: bold;text-align: center;">Từ điển</h1>
   <div style="margin-left: 25%;margin-right: 25%">
-    <form method="post" action="/money">
-      <input name="t_usd" id="t_usd" value="${usd}" type="text">
-      <button type="submit" style="background-color: chartreuse">Tra cứu</button>
-      <label>chuyển đổi thành: </label>
-      <input id="vnd" readonly value="${usd*23460}"><span>(vnd)</span>
+    <form action="/search" method="get">
+      <input type="text" name="search" value="${search}">
+      <input type="submit" >
+      <p>${result}</p>
     </form>
   </div>
 
