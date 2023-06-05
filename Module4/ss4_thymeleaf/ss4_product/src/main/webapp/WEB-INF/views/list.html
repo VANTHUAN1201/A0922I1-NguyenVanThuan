@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Product</title>
+    <style>
+        table{
+            width: 100%;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+<a th:href="@{/list}"><h1>List Product</h1></a>
+<form th:action="@{/search}" method="post" style="margin-left: 30%">
+    <input type="text" name="name" th:value="${search_name}" >
+    <input type="submit" name="search" value="search">
+</form>
+<a th:href="@{/create}">Create product</a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Quantity</th>
+        <th>Date</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    <tr th:each="p:${productList}"  >
+        <td th:text="${p.id}"></td>
+        <td th:text="${p.name}"></td>
+        <td th:each="c:${categoryList}" th:if="${p.categoryId==c.categoryID}" th:text="${c.categoryName}"></td>
+        <td th:text="${p.quantity}" style="text-align: center;"></td>
+        <td th:text="${(p.date)}" style="text-align: right"></td>
+        <td th:text="${p.price}" style="text-align:right "></td>
+        <td style="text-align: center;">
+            <a th:href="@{/detail/{id}(id=${p.id})}">Detail</a>
+            <a th:href="@{/update(id=${p.id})}">Update</a>
+            <a th:href="@{/remove(id=${p.id})}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
