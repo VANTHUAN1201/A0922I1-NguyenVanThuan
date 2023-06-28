@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{template/sidebar::header('Trang chủ')}">
+</head>
+
+<body>
+    <div th:replace="~{template/sidebar::navbar}"></div>
+    <div>
+        <h4>Blog list</h4>
+      <a th:href="@{/blog/create}" class="btn btn-primary" role="button">Thêm mới</a>
+    </div>
+    <div>
+        <table class="table table-striped" id="dataTable-listStudent">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tiêu đề</th>
+                    <th>Danh mục</th>
+                    <th>Ngày viết</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody th:each="blog: ${blogList} ">
+                <tr>
+                    <td th:text="${blog.id}"></td>
+                    <td th:text="${blog.title}"></td>
+                    <td th:text="${blog.category.categoryName}"></td>
+                    <td th:text="${blog.date}"></td>
+                    <td>
+                        <a th:href="@{/blog/view(id=${blog.id})}">View</a>
+                        <a th:href="@{/blog/update(id=${blog.id})}">Update</a>
+                        <a th:href="@{/blog/delete/(id=${blog.id})}">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
