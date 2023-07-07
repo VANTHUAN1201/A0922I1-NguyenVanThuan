@@ -68,12 +68,12 @@ public class Cart {
         return products.size();
     }
 
-    public String countTotalPayment(){
+    public Float countTotalPayment(){
+
         float payment = 0;
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             payment += Float.parseFloat(entry.getKey().getPrice())  * (float) entry.getValue();
         }
-
-        return Float.toString(payment);
+        return payment;
     }
 }

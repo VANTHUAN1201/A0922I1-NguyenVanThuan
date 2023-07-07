@@ -33,6 +33,11 @@ public class BlogServiceImpl implements IBlogService {
         return repository.findAll();
     }
 
+    @Override
+    public List<Blog> findProductByTitle(String name) {
+        return repository.findBlogByTitleContaining(name);
+    }
+
     /*@Override
     public List<Blog> findAllByIdCategory(int idCategory) {
         return repository.findAll(idCategory);

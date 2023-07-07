@@ -5,6 +5,14 @@
 
 <body>
     <div th:replace="~{template/sidebar::navbar}"></div>
+
+    <form th:action="@{/blog/search}" method="get" >
+        <span style="color: red">Title</span>: <input type="text" name="name" th:value="${name != null ? name: ''}" id="name">
+       <input type="button" value="Search whith ajax" onclick="search()"></input>
+
+    </form>
+
+    <hr>
     <div>
         <h4>Blog list</h4>
       <a th:href="@{/blog/create}" class="btn btn-primary" role="button">Thêm mới</a>
@@ -20,8 +28,8 @@
                     <th>Hành động</th>
                 </tr>
             </thead>
-            <tbody th:each="blog: ${blogList} ">
-                <tr>
+            <tbody id="result">
+                <tr th:each="blog: ${blogList} ">
                     <td th:text="${blog.id}"></td>
                     <td th:text="${blog.title}"></td>
                     <td th:text="${blog.category.categoryName}"></td>
@@ -35,13 +43,50 @@
             </tbody>
         </table>
     </div>
-    <ul class="pagination pagination-lg">
-        <li th:if="${blogList.totalPages > 0}" style="margin-left: 30%"
-            th:each="pageNumber : ${pageNumbers}">
-            <a th:href="@{/blog/list(size=${blogList.size}, page=${pageNumber})}"
-               th:text="${pageNumber}"
-               th:class="${pageNumber==blogList.number + 1} ? active"></a>
-        </li>
-    </ul>
+    <div style="margin-left: 50%!important">
+        <ul class="pagination pagination-lg" >
+            <li th:if="${blogList.totalPages > 0}" style="text-indent: 5px "
+                th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/blog/list(size=${blogList.size}, page=${pageNumber})}"
+                   th:text="${pageNumber}"
+                   th:class="${pageNumber==blogList.number + 1} ? active"></a>
+            </li>
+        </ul>
+    </div>
+    <script
+            src="https://code.jquery.com/jquery-3.7.0.min.js"
+            integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+            crossorigin="anonymous">
+
+    </script>
+    <script>
+        function search() {
+            let name = $("#name").val();
+            $.ajax({
+                url: "http://localhost:8080/api/blog/search" ,
+                data: {name: name},
+                type: "get",
+                dataType: "json",
+                success: function(data) {
+                    let result = '';
+                    for (let i = 0; i < data.length; i++) {
+                        result += "<tr>"
+                            + "<td>" + data[i].id + "</td>"
+                            + "<td>" + data[i].title + "</td>"
+                            + "<td>" + data[i].category.categoryName+ "</td>"
+                            + "<td>" + data[i].date + "</td>"
+                            + "<td> <a href='http://localhost:8080/blog/detail/" + data[i].id +
+                            "'>Detail</a>&nbsp;&nbsp;" +
+                            "<a href='http://localhost:8080/blog/update?id="+ data[i].id +
+                            "'>Update</a>" +
+                            "<a href='http://localhost:8080/blog/delete?id="+ data[i].id +
+                            "'>Delete</a></td>\"</td>"
+                            + "</tr>";
+                    }
+                    $("#result").html(result);
+                }
+            });
+        }
+    </script>
 </body>
 </html>

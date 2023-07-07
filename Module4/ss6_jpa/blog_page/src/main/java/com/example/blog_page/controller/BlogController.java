@@ -94,4 +94,11 @@ public class BlogController {
         }
         return "blog/list";
     }
+    @GetMapping("/search")
+    public String search(@RequestParam("name") String name, Model model) {
+        List<Blog> blogList = blogService.findProductByTitle(name);
+        model.addAttribute("blogList", blogList);
+        model.addAttribute("name", name);
+        return "/blog/list";
+    }
 }

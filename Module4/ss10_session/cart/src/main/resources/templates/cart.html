@@ -18,7 +18,7 @@
             <th>Giá</th>
         </tr>
         <tr th:each="product: ${cart.products}">
-            <td><img th:src="${product.getKey().image}"></td>
+            <td><img th:src="${product.getKey().image}" width="70px"></td>
             <td th:text="${product.getKey().name}"></td>
             <td>
                 <a id="decrease_button" class="btn btn-light" role="button" th:href="@{/del/__${product.getKey().id}__(action='delete')}">-</a>
@@ -29,7 +29,7 @@
         </tr>
         <tr>
             <td colspan="3">Tổng tiền</td>
-            <td th:text="${cart.countTotalPayment()}"></td>
+            <td th:text="${#numbers.formatInteger(cart.countTotalPayment(),0)}"></td>
         </tr>
     </table>
 </form>

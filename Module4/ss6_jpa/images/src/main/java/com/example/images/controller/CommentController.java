@@ -3,6 +3,8 @@ package com.example.images.controller;
 import com.example.images.entity.Comment;
 import com.example.images.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +15,14 @@ public class CommentController {
     private CommentService commentRepository;
 
     @GetMapping("/comment")
-    public String showList(Model model) {
+    public String showList(Model model, @PageableDefault(value = 2)Pageable pageable) {
         model.addAttribute("comment", new Comment());
-        model.addAttribute("comments", commentRepository.findAll());
+        model.addAttribute("comments", commentRepository.findAll(pageable));
         return "show";
     }
 
     @PostMapping("/create")
-    public String doCreate(@ModelAttribute("comment") Comment comment, @RequestParam("id") int id) {
+    public String create(@ModelAttribute("comment") Comment comment, @RequestParam("id") int id) {
         commentRepository.create(comment);
         return "redirect:/comment";
     }

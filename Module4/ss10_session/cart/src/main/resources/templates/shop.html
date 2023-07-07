@@ -4,12 +4,11 @@
 </head>
 <body>
 <div th:replace="~{template::navbar}"></div>
-<div style="margin-right: 0;"><a th:href="@{/cart}">Giỏ hàng</a></div>
-<div>
-    <div class="row row-pb-md">
-        <div class="col-lg-3 mb-4 text-center" th:each="product:${products}">
+<div class="container-lg">
+    <div class="row row-pb-mb">
+        <div class="col-lg-4 mb-3 text-center" th:each="product:${products}">
             <div class="product-entry border" >
-                <img th:src="${product.image}" class="img-fluid" alt="..">
+                <img th:src="${product.image}" class="img-fluid" alt=".." width="150px">
                 <div class="desc">
                     <h2 th:text="${product.name}"></h2>
                     <p style="color: red;" th:text="${product.price}"></p>

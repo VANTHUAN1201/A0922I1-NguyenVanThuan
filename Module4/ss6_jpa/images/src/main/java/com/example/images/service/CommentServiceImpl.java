@@ -3,6 +3,8 @@ package com.example.images.service;
 import com.example.images.entity.Comment;
 import com.example.images.repo.CommentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -31,9 +33,10 @@ public class CommentServiceImpl implements CommentService{
     }
 
     @Override
-    public List<Comment> findAll() {
-        return (List<Comment>) repository.findAll();
+    public Page<Comment> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
+
 
     @Override
     public Comment findById(int id) {

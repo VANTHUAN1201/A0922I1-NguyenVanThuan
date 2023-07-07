@@ -1,12 +1,14 @@
 package com.example.blog_page.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
-public class Blog {
+public class Blog implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -17,6 +19,7 @@ public class Blog {
     private Date date;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "idCategory",referencedColumnName = "idCategory")
+    @JsonManagedReference
     private Category category;
 
     public Blog() {
